@@ -36,43 +36,44 @@ from pretrained_utils import *
 from rdkit import Chem
 from rdkit.Chem import SaltRemover
 
-
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-
-max_length = 250
-
-
-model = DualBartModel(config1, config2, reg_mod)
-model.load_state_dict(torch.load("/home/ittipat.mee/doublebart/uploaded_code/model/hbv_model.pt", map_location=torch.device('cuda')))
-model.to(device)
-
-#SMILES for the prediction
-smiles = 'Nc1ccn([C@@H]2CC(O)[C@H](CO)O2)c(=O)n1'
-
-smiles_data_no_salt = remove_salt(smiles) 
-smiles = smiles_data_no_salt
-
-input_encoding1 = tokenizer1.encode_plus(smiles, truncation=True, max_length=max_length, padding='max_length', return_tensors="pt")
-input_encoding2 = tokenizer2.encode_plus(smiles, truncation=True, max_length=max_length, padding='max_length', return_tensors="pt")
-
-input_ids1 = input_encoding1['input_ids'].to(device)
-attention_mask1 = input_encoding1['attention_mask'].to(device)
-input_ids2 = input_encoding2['input_ids'].to(device)
-attention_mask2 = input_encoding2['attention_mask'].to(device)
-
-with torch.no_grad():
-    output = model(input_ids1=input_ids1, attention_mask1=attention_mask1,
-                   input_ids2=input_ids2, attention_mask2=attention_mask2)
-
-
-prediction = output
-
-prediction_value = prediction.cpu().numpy()[0]
-
-print('Predicted pACT: ', prediction_value * (max_pact_hbv - min_pact_hbv) + min_pact_hbv)
-predicted_EC50 = 10**-(prediction_value * (max_pact_hbv - min_pact_hbv) + min_pact_hbv) * 10**9
-print('Predicted EC50 :', predicted_EC50, 'nM')
-
+if __name__ == "__main__":
+        
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    
+    max_length = 250
+    
+    
+    model = DualBartModel(config1, config2, reg_mod)
+    model.load_state_dict(torch.load("/home/ittipat.mee/doublebart/uploaded_code/model/hbv_model.pt", map_location=torch.device('cuda')))
+    model.to(device)
+    
+    #SMILES for the prediction
+    smiles = 'Nc1ccn([C@@H]2CC(O)[C@H](CO)O2)c(=O)n1'
+    
+    smiles_data_no_salt = remove_salt(smiles) 
+    smiles = smiles_data_no_salt
+    
+    input_encoding1 = tokenizer1.encode_plus(smiles, truncation=True, max_length=max_length, padding='max_length', return_tensors="pt")
+    input_encoding2 = tokenizer2.encode_plus(smiles, truncation=True, max_length=max_length, padding='max_length', return_tensors="pt")
+    
+    input_ids1 = input_encoding1['input_ids'].to(device)
+    attention_mask1 = input_encoding1['attention_mask'].to(device)
+    input_ids2 = input_encoding2['input_ids'].to(device)
+    attention_mask2 = input_encoding2['attention_mask'].to(device)
+    
+    with torch.no_grad():
+        output = model(input_ids1=input_ids1, attention_mask1=attention_mask1,
+                       input_ids2=input_ids2, attention_mask2=attention_mask2)
+    
+    
+    prediction = output
+    
+    prediction_value = prediction.cpu().numpy()[0]
+    
+    print('Predicted pACT: ', prediction_value * (max_pact_hbv - min_pact_hbv) + min_pact_hbv)
+    predicted_EC50 = 10**-(prediction_value * (max_pact_hbv - min_pact_hbv) + min_pact_hbv) * 10**9
+    print('Predicted EC50 :', predicted_EC50, 'nM')
+    
 
 # In[ ]:
 
