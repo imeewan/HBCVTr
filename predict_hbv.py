@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[15]:
 
 
 from BartDataset import BartDataset
@@ -43,11 +43,11 @@ max_length = 250
 
 
 model = DualBartModel(config1, config2, reg_mod)
-model.load_state_dict(torch.load("/home/ittipat.mee/doublebart/uploaded_code/model/hcv_model.pt", map_location=torch.device('cuda')))
+model.load_state_dict(torch.load("/home/ittipat.mee/doublebart/uploaded_code/model/hbv_model.pt", map_location=torch.device('cuda')))
 model.to(device)
 
 #SMILES for the prediction
-smiles = 'COC(=O)NC(C(=O)N1CCC[C@H]1c1ncc(-c2ccc(-c3ccc4cc(-c5cnc([C@@H]6CCCN6C(=O)[C@@H](NC(=O)OC)C(C)C)[nH]5)ccc4c3)s2)[nH]1)C(C)C'
+smiles = 'Nc1ccn([C@@H]2CC(O)[C@H](CO)O2)c(=O)n1'
 
 smiles_data_no_salt = remove_salt(smiles) 
 smiles = smiles_data_no_salt
@@ -69,8 +69,8 @@ prediction = output
 
 prediction_value = prediction.cpu().numpy()[0]
 
-print('Predicted pACT: ', prediction_value * (max_pact_hcv - min_pact_hcv) + min_pact_hcv)
-predicted_EC50 = 10**-(prediction_value * (max_pact_hcv - min_pact_hcv) + min_pact_hcv) * 10**9
+print('Predicted pACT: ', prediction_value * (max_pact_hbv - min_pact_hbv) + min_pact_hbv)
+predicted_EC50 = 10**-(prediction_value * (max_pact_hbv - min_pact_hbv) + min_pact_hbv) * 10**9
 print('Predicted EC50 :', predicted_EC50, 'nM')
 
 
