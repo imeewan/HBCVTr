@@ -43,7 +43,7 @@ max_length = 250
 
 
 model = DualBartModel(config1, config2, reg_mod)
-model.load_state_dict(torch.load("/home/ittipat.mee/doublebart/uploaded_code/model/hcv_model.pt", map_location=torch.device('cuda')))
+model.load_state_dict(torch.load("model/hcv_model.pt", map_location=torch.device('cuda')))
 model.to(device)
 
 #SMILES for the prediction
