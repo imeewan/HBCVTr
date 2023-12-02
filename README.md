@@ -11,6 +11,6 @@ transformers: 4.31.0\
 scikit-learn: 1.2.2\
 SmilesPE: 0.0.3
 
-# Pre-trained models
-The pre-trained models for biological activity prediction against HBV and HCV are available at:/
+# Trained models
+The trained models for biological activity prediction against HBV and HCV are available at:/
 https://drive.google.com/drive/folders/1yRFQs9Hl8AfA3f-GvsnP7w-0oionkBaU?usp=sharing
