@@ -32,5 +32,6 @@ Execute predict.py
 Enter your SMILES
     <html>
       <head>
+      Enter the SMILES of the compound:
       </head>
     </html>
