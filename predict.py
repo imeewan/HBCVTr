@@ -41,7 +41,7 @@ if __name__ == "__main__":
     
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-    smiles = input("Enter the SMILES string of the compound: ")
+    smiles = input("Enter the SMILES of the compound: ")
 
     virus_choice = input("Do you want to predict the compound's activity against HBV or HCV? (Enter HBV or HCV): ").lower()
 
