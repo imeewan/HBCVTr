@@ -14,6 +14,11 @@ deepsmiles: 1.0.1\
 SmilesPE: 0.0.3
 
 # Installing dependencies
+        <html>
+          <head>
+            <title>Test</title>
+          </head>
+
 conda create -c conda-forge -n hbcv rdkit -y
 conda activate hbcv
 conda install numpy=1.25.0 pandas=1.5.3 scikit-learn=1.2.2 tqdm=4.65.0 pytorch=2.0.1 -c pytorch -y
