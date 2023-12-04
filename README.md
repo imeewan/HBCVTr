@@ -10,6 +10,7 @@ rdkit: 2023.3.2\
 tqdm: 4.65.0\
 transformers: 4.31.0\
 scikit-learn: 1.2.2\
+deepsmiles: 1.0.1\
 SmilesPE: 0.0.3
 
 # Trained models
