@@ -26,3 +26,13 @@ Ensure that you activate 'hbcv' environment before installing these packages
 # Trained models
 The trained models for biological activity prediction against HBV and HCV are available at:/
 https://drive.google.com/drive/folders/1yRFQs9Hl8AfA3f-GvsnP7w-0oionkBaU?usp=sharing
+
+# Performing the prediction
+Execute predict.py
+Enter your SMILES
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1>Hello World</h1>
+  </div>
+</div>
+
