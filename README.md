@@ -13,6 +13,13 @@ scikit-learn: 1.2.2\
 deepsmiles: 1.0.1\
 SmilesPE: 0.0.3
 
+# Installing dependencies
+conda create -c conda-forge -n hbcv rdkit -y
+conda activate hbcv
+conda install numpy=1.25.0 pandas=1.5.3 scikit-learn=1.2.2 tqdm=4.65.0 pytorch=2.0.1 -c pytorch -y
+pip install transformers==4.31.0 SmilesPE==0.0.3
+pip install --upgrade deepsmiles
+
 # Trained models
 The trained models for biological activity prediction against HBV and HCV are available at:/
 https://drive.google.com/drive/folders/1yRFQs9Hl8AfA3f-GvsnP7w-0oionkBaU?usp=sharing
