@@ -30,9 +30,7 @@ https://drive.google.com/drive/folders/1yRFQs9Hl8AfA3f-GvsnP7w-0oionkBaU?usp=sha
 # Performing the prediction
 Execute predict.py
 Enter your SMILES
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <h1>Hello World</h1>
-  </div>
-</div>
-
+    <html>
+      <head>
+      </head>
+    </html>
