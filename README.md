@@ -30,8 +30,16 @@ https://drive.google.com/drive/folders/1yRFQs9Hl8AfA3f-GvsnP7w-0oionkBaU?usp=sha
 # Performing the prediction
 Execute predict.py
 Enter your SMILES
-    <html>
-      <head>
-      Enter the SMILES of the compound:
-      </head>
-    </html>
+
+    Enter the SMILES of the compound: C[C@H](Cn1cnc2c(N)ncnc21)OCP(=O)(O)OP(=O)(O)CO[C@H](C)Cn1cnc2c(N)ncnc21
+
+Then select whether you want to predict the compound's activity against HBV or HCV
+
+    Do you want to predict the compound's activity against HBV or HCV? (Enter HBV or HCV): HCV
+
+The the prediction results will show up
+    
+    SMILES:  C[C@H](Cn1cnc2c(N)ncnc21)OCP(=O)(O)OP(=O)(O)CO[C@H](C)Cn1cnc2c(N)ncnc21
+    Predicted pACT:  8.12295828104019
+    Predicted EC50 : 7.534279356412855 nM
+    
