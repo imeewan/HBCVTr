@@ -44,7 +44,7 @@ if __name__ == "__main__":
     
     
     model = DualBartModel(config1, config2, reg_mod)
-    model.load_state_dict(torch.load("model/hbv_model.pt", map_location=torch.device('cuda')))
+    model.load_state_dict(torch.load("model/hbv_model.pt", map_location=device))
     model.to(device)
     
     #SMILES for the prediction
