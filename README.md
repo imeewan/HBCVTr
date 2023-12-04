@@ -2,6 +2,7 @@
 HBCVTr is double encoder of transformers and deep neural network machine learning model  to predict the structure and antiviral activity relationship between a simplified molecular-input line-entry system (SMILES) of small molecules to HBV or HCV
 
 # Requirement
+python: 3.11.4\
 numpy: 1.25.0\
 pandas: 1.5.3\
 torch: 2.0.1\
