@@ -49,7 +49,7 @@ if __name__ == "__main__":
     num_hidden_layers = [2]
     dropouts = [0.15]
     learning_rates = [1e-6] 
-    reg_mod = [256, 64]
+    reg_mod = [128, 64]
     weight_decay = 0.001
     num_epochs = 2
 
