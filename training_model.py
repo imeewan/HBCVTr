@@ -51,7 +51,7 @@ if __name__ == "__main__":
     learning_rates = [1e-6] 
     reg_mod = [256, 128]
     weight_decay = 0.001
-    num_epochs = 5
+    num_epochs = 2
 
     param_combinations = list(itertools.product(d_models, encoder_ffn_dims, num_attention_heads, num_hidden_layers, dropouts, learning_rates))
     combinations = param_combinations
