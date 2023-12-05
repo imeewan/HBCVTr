@@ -21,7 +21,7 @@ class CustomBart_FG_Tokenizer(PreTrainedTokenizer):
         self.converter = deepsmiles.Converter(rings=True, branches=True)
         self.encoder = {char: idx for idx, char in enumerate(vocab)}
         self.decoder = {idx: char for idx, char in enumerate(vocab)}
-        self.spe_vob = codecs.open('data/SPE_ChEMBL.txt')
+        self.spe_vob = codecs.open('data/spe_vocab_list.txt')
         
 
     def tokenize(self, text):
