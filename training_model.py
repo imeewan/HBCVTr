@@ -159,18 +159,18 @@ def training_model(combinations):
 if __name__ == "__main__":
 
     max_length = 250
-    batch_size = 64
+    batch_size = 8
 
     data_path = "data/hcv_dataset.csv"
     train_dataloader, val_dataloader = train_val_proc(data_path)
 
-    d_models = [512]
-    encoder_ffn_dims = [4096]
-    num_attention_heads = [32]
-    num_hidden_layers = [4]
+    d_models = [128]
+    encoder_ffn_dims = [256]
+    num_attention_heads = [8]
+    num_hidden_layers = [2]
     dropouts = [0.15]
     learning_rates = [1e-6] 
-    reg_mod = [1024, 640]
+    reg_mod = [256, 128]
     weight_decay = 0.001
     num_epochs = 200
 
