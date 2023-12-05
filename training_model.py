@@ -37,14 +37,14 @@ from utils import *
 
 if __name__ == "__main__":
 
-    max_length = 250
-    batch_size = ภ
+    max_length = 50
+    batch_size = 4
 
     data_path = "data/hbv_dataset.csv"
     train_dataloader, val_dataloader = train_val_proc(data_path)
 
     d_models = [56]
-    encoder_ffn_dims = [128]
+    encoder_ffn_dims = [56]
     num_attention_heads = [4]
     num_hidden_layers = [2]
     dropouts = [0.15]
