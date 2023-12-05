@@ -152,7 +152,7 @@ def training_model(combinations):
                 outfile.write(json.dumps(log_dict) + '\n')
 
             if avg_val_r2 > max_r2:
-                torch.save(model.state_dict(), f"model/hcv_model.pt")
+                torch.save(model.state_dict(), f"model/new_model.pt")
                 max_r2 = avg_val_r2
 
                 
