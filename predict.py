@@ -47,11 +47,11 @@ if __name__ == "__main__":
 
     print("Analysis in progress ...")
 
-    if virus_choice == 'hbv':
+    if virus_choice.lower() == 'hbv':
         model_path = "model/hbv_model.pt"
         max_pact = max_pact_hbv
         min_pact = min_pact_hbv
-    elif virus_choice == 'hcv':
+    elif virus_choice.lower() == 'hcv':
         model_path = "model/hcv_model.pt"
         max_pact = max_pact_hcv
         min_pact = min_pact_hcv
