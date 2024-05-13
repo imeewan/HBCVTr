@@ -1,5 +1,7 @@
+![image](https://github.com/imeewan/HBCVTr/assets/29390962/b512b33e-227d-4252-b9aa-6267ad9dea6d)
+
 # HBCVTr
-HBCVTr is double-encoder of transformers and deep neural network machine learning model to predict the antiviral activity against hepatitis B virus (HBV) and hepatitis C virus (HCV) using a simplified molecular-input line-entry system (SMILES) of small molecules 
+HBCVTr is double-encoder of transformers and deep neural network machine learning model to predict the antiviral activity against hepatitis B virus (HBV) and hepatitis C virus (HCV) using a simplified molecular-input line-entry system (SMILES) of small molecules. The article has been published at: https://www.nature.com/articles/s41598-024-59933-4
 # Requirement
 python: 3.11.4\
 numpy: 1.25.0\
