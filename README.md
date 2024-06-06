@@ -13,6 +13,9 @@ transformers: 4.31.0\
 scikit-learn: 1.2.2\
 deepsmiles: 1.0.1\
 SmilesPE: 0.0.3
+\
+Google Colab implementation of HBCVTr is available at:
+https://colab.research.google.com/github/imeewan/HBCVTr/blob/feature%2Fcolab_develop/HBCVTr_Prediction_Demo.ipynb
 
 # Installing dependencies
 To create conda environment and innstall the depedencies, execute the following commands:
