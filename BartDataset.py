@@ -8,7 +8,7 @@ import torch
 from torch import nn
 from torch.utils.data import DataLoader, RandomSampler
 from transformers import BartTokenizer
-#from transformers import AdamW
+from torch.optim import AdamW
 from transformers import get_linear_schedule_with_warmup
 from transformers import BartForConditionalGeneration, BartConfig, DataCollatorForSeq2Seq, Seq2SeqTrainingArguments, Seq2SeqTrainer
 from transformers import PreTrainedTokenizer
