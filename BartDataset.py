@@ -12,7 +12,7 @@ from transformers import BartTokenizer
 from transformers import get_linear_schedule_with_warmup
 from transformers import BartForConditionalGeneration, BartConfig, DataCollatorForSeq2Seq, Seq2SeqTrainingArguments, Seq2SeqTrainer
 from transformers import PreTrainedTokenizer
-from transformers import BartConfig, AdamW, get_linear_schedule_with_warmup
+from transformers import BartConfig, get_linear_schedule_with_warmup
 from torch.utils.data import Dataset, DataLoader
 
 class BartDataset(torch.utils.data.Dataset):
