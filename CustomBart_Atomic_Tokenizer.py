@@ -5,13 +5,20 @@ from transformers import PreTrainedTokenizer
 
 class CustomBart_Atomic_Tokenizer(PreTrainedTokenizer):
     def __init__(self, vocab, *args, **kwargs):
-        super().__init__(*args, **kwargs)
         self.vocab = vocab
         self.converter = deepsmiles.Converter(rings=True, branches=True)
         self.encoder = {char: idx for idx, char in enumerate(vocab)}
         self.decoder = {idx: char for idx, char in enumerate(vocab)}
+        super().__init__(*args, **kwargs)
 
-    def tokenize(self, text):
+    @property
+    def vocab_size(self):
+        return len(self.vocab)
+
+    def get_vocab(self):
+        return dict(self.encoder)
+
+    def tokenize(self, text, **kwargs):
         return atomwise_tokenizer(text)
 
     def convert_tokens_to_ids(self, tokens):

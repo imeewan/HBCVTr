@@ -6,16 +6,23 @@ from transformers import PreTrainedTokenizer
 
 class CustomBart_FG_Tokenizer(PreTrainedTokenizer):
     def __init__(self, vocab, *args, **kwargs):
-        super().__init__(*args, **kwargs)
         self.vocab = vocab
         self.converter = deepsmiles.Converter(rings=True, branches=True)
         self.encoder = {char: idx for idx, char in enumerate(vocab)}
         self.decoder = {idx: char for idx, char in enumerate(vocab)}
-        self.spe_vob = codecs.open('data/spe_vocab_list.txt')
+        spe_vob = codecs.open('data/spe_vocab_list.txt')
+        self.spe = SPE_Tokenizer(spe_vob)
+        super().__init__(*args, **kwargs)
 
-    def tokenize(self, text):
-        spe = SPE_Tokenizer(self.spe_vob)
-        tokens = spe.tokenize(text)
+    @property
+    def vocab_size(self):
+        return len(self.vocab)
+
+    def get_vocab(self):
+        return dict(self.encoder)
+
+    def tokenize(self, text, **kwargs):
+        tokens = self.spe.tokenize(text)
         return tokens.split(' ')
 
     def convert_tokens_to_ids(self, tokens):
