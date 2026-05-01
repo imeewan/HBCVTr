@@ -38,12 +38,27 @@ HBCVTr/
 
 ## Current status
 
-**Steps 1–3**: Working on Colab Python 3.12 with current transformers.
-**Step 4**: Fixed as of last commit — prediction runs end-to-end.
+**End-to-end verified on Colab Python 3.12** as of 2026-05-01.
+All steps run cleanly: install → clone+download → load libs → predict.
 
 Last verified prediction (Adefovir dipivoxil, HBV):
 - pACT: 8.1230
 - EC50: 7.5342 nM
+
+### Gotcha: `sys.modules` cache after `git pull`
+
+If a fix to `pretrained_utils.py` (or any other .py in the repo) is pushed
+*after* a Colab session has already imported it, Step 2's `git pull` will
+update the file on disk but Step 3's `from pretrained_utils import ...`
+returns the cached module — the fix won't take effect.
+
+**Symptom:** the same error keeps appearing after a fix-and-pull cycle.
+
+**Fix in the notebook:** Step 3 now calls `importlib.reload(pretrained_utils)`
+before importing names from it, so a `git pull` is sufficient.
+
+**Manual workaround (always safe):** `Runtime → Restart session` and re-run
+all cells.
 
 ---
 
