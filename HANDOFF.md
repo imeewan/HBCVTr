@@ -143,6 +143,26 @@ Small speed improvement: `inference_mode` additionally disables autograd view tr
 
 ---
 
+### 10. `data/atomic_vocab.json`, `data/fg_vocab.json` — restore full vocabs
+
+**Problem:** When the inline vocab lists were split out of `pretrained_utils.py` in
+commit 68b12e1, both JSON files lost interior tokens (atomic ended up 273 vs the
+trained checkpoint's 274; fg ended up 1705 vs 3093). Loading the .pt files then
+failed with `size mismatch for bart1.model.shared.weight ...` on every embedding /
+lm_head / final_logits_bias tensor.
+
+**Fix:** Regenerated both JSON files from the original inline lists in commit
+e490896. Verify with:
+```python
+import json
+print(len(json.load(open('data/atomic_vocab.json'))))  # must be 274
+print(len(json.load(open('data/fg_vocab.json'))))      # must be 3093
+```
+The vocabs end with `["_", "[UNK]", "[MASK]"]` — these positions are load-bearing
+because the model was trained with them at those indices.
+
+---
+
 ## Potential follow-up issues
 
 - The `_encode` helper assumes `'_'` is always in the vocabulary as the pad token.
